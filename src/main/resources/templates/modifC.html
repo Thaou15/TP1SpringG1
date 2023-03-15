@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Modification Chef d'orchestre</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+<form method="post" action="/modifC"  modelAttribute="chef">
+		<div class="mb-3">
+			<label for="exampleInputEmail1" class="form-label">Nom</label> 
+			<input type="text"  name="nomChef" th:value="${chef.nomChef}" class="form-control" id="nomChef" aria-describedby="emailHelp">
+		</div>
+		
+		<div class="mb-3">
+			<label for="exampleInputEmail1" class="form-label">Prénom</label> 
+			<input type="text" name="prenomChef" th:value="${chef.prenomChef}" class="form-control" id="prenomChef" aria-describedby="emailHelp">
+		</div>
+		<div class="mb-3">
+			<label for="exampleInputEmail1" class="form-label">Date de Naissance</label> 
+			<input type="text" name="dateNaissanceChef" th:value="${chef.dateNaissanceChef}" class="form-control" id="dateNaissanceChef" aria-describedby="emailHelp">
+		</div>
+			
+		<div class="mb-3">
+			<label for="exampleInputEmail1" class="form-label">Nationalité</label> 
+			<input type="text" name="nationalite" th:value="${chef.nationalite}" class="form-control" id="nationalite" aria-describedby="emailHelp">
+		</div>
+		<div class="mb-3">
+			<label for="exampleInputEmail1" class="form-label">Cachet demandé</label> 
+			<input type="text" name="cachetDemande" th:value="${chef.cachetDemande}" class="form-control" id="cachetDemande" aria-describedby="emailHelp">
+		</div>
+		
+		<div class="input-group">
+ 	 		<span class="input-group-text">Commentaires</span>
+ 	 		<textarea class="form-control" name="commentaires" th:value="${chef.commentaires}" aria-label="With textarea"></textarea>
+		</div>
+		
+		
+		<button type="submit" class="btn btn-primary">Envoyer</button>
+		<button type="reset" class="btn btn-danger">Annuler</button>
+	</form>
+</body>
+</html>

@@ -35,25 +35,44 @@ public class MainController {
 	@GetMapping("listeChefO")
 	public String listeChefO(Model m)
 	{
-	    m.addAttribute("listeChefO",icr.findAll());
+		
+	    m.addAttribute("listeChef",icr.findAll());
+	   
 		return"listeChefO";
 	}
 	
 	@GetMapping("getChefO")
-	public String getChefO(@RequestParam("id") int id, Model m)
+	public String getChefO(@RequestParam("numChef") int numChef, Model m)
 	{
-		ChefO chefo = icr.findById(id).get();
+		ChefO chefo = icr.findById(numChef).get();
 		
 		m.addAttribute("chefO", chefo);
 		
 		return"afficherChefO";
 	}
 	
-	@GetMapping("delete/{id}")
-	public String deleteChefO(@PathVariable("id") int id)
+	@GetMapping("delete/{numChef}")
+	public String deleteChefO(@PathVariable("numChef") int numChef)
 	{
-		icr.deleteById(id);
+		icr.deleteById(numChef);
 		
+		return "redirect:/listeChefO";
+	}
+	
+	@GetMapping("update/{numChef}")
+	public String ModifChefO(@PathVariable("numChef") int numChef, Model m)
+	{
+		m.addAttribute("chef",icr.getReferenceById(numChef));
+		
+		return "modifC";
+	}
+	
+	@PostMapping("modifC")
+	public String updateVoiture(@ModelAttribute ("chefO") ChefO chefo)
+	{
+		
+		 icr.save(chefo);
+			
 		return "redirect:/listeChefO";
 	}
 	
