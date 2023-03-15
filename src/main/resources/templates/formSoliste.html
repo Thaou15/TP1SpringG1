@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Formulaire Soliste</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+	crossorigin="anonymous">
+</head>
+<body>
+<form method="post" action="saveSoliste" modelAttribute="soliste">
+	
+		<div class="mb-3">
+			<label for="nomS" class="form-label">Nom</label> 
+			<input type="text" name="nomS" class="form-control" id="nomS">
+		</div>
+		<div class="mb-3">
+			<label for="prenomS" class="form-label">Prenom</label> 
+			<input type="text" name="prenomS" class="form-control" id="prenomS">
+		</div>
+		<div class="mb-3">
+			<label for="dateNaissance" class="form-label">Date de naissance (YYYY-MM-DD)</label> 
+			<input type="text" name="dateNaissance" class="form-control" id="dateNaissance">
+		</div>
+		<div class="mb-3">
+			<label for="nationalite" class="form-label">Nationalite</label> 
+			<input type="text" name="nationalite" class="form-control" id="nationalite">
+		</div>
+		
+		<button type="submit" class="btn btn-outline-success btn-sm">Valider</button>
+		<button type="reset" class="btn btn-outline-secondary btn-sm">Annuler</button>
+
+	</form>
+</body>
+</html>
