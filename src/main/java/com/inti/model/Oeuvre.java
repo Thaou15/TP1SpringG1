@@ -1,18 +1,27 @@
 package com.inti.model;
 
+import java.util.List; 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+
+import jakarta.persistence.OneToMany;
+
 import jakarta.persistence.ManyToOne;
+
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
 @Table
-@Data @NoArgsConstructor
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Oeuvre {
 	
 	@Id
@@ -20,6 +29,11 @@ public class Oeuvre {
 	private int id;
 	private String nom;
 	private int duree;
+	
+	@ManyToOne
+	@JoinColumn(name="idChefO")
+	private ChefO chefo;
+
 
 	@ManyToOne
 	@JoinColumn(name = "idconcert")
@@ -30,6 +44,9 @@ public class Oeuvre {
 		this.nom = nom;
 		this.duree = duree;
 	}
-	
+
+	@OneToMany(mappedBy = "oeuvre" ,targetEntity = Soliste.class)
+    private List<Soliste> listeSoliste;
+
 	
 }

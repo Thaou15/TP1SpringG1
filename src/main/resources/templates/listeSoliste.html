@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8">
+<title>Liste soliste</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+	crossorigin="anonymous">
+</head>
+<body>
+	
+	<div class="container text-center">
+	  <div class="row">
+	    <div class="col">Id</div>
+	    <div class="col">Nom</div>
+	    <div class="col">Prenom</div>
+	    <div class="col">Date de naissance</div>
+	    <div class="col">Nationalité</div>
+	    <div class="col">Action</div>
+	  </div>
+	  
+		  <div class="row" th:each="sol : ${ listeS }" th:with="idS=${sol.id}">
+		  	<div class="col" th:text="${ idS }"></div>
+
+		    <div class="col" th:text="${ sol.nomS }"></div>
+		    <div class="col" th:text="${ sol.prenomS }"></div>
+		    <div class="col" th:text="${ sol.dateNaissance }"></div>
+		    <div class="col" th:text="${ sol.nationalite }"></div>
+		    <div class="col">
+		    	<a th:href="'deleteSoliste/' + ${ idS }"> <button type="button" class="btn btn-outline-danger">Supprimer</button></a>
+		    	<a th:href="'modifSoliste/' + ${ idS }"> <button type="button" class="btn btn-outline-info">Modifier</button></a>
+		    </div>
+		  </div>
+
+	  
+	</div>
+	
+	
+</body>
+</html>
