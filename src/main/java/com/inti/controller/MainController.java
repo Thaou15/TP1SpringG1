@@ -238,6 +238,8 @@ public class MainController {
 	public String listeSoliste(Model m) {
 		m.addAttribute("listeS", isr.findAll());
 
+		System.out.println("abc" + isr.findAll());
+
 		return "listeSoliste";
 	}
 
@@ -256,7 +258,10 @@ public class MainController {
 	}
 
 	@PostMapping("updateSoliste")
-	public String updateSoliste(@ModelAttribute("vol") Soliste s) {
+
+	public String updateSoliste(@ModelAttribute("sol") Soliste s)
+	{
+
 		isr.save(s);
 
 		return "redirect:/listeSoliste";

@@ -24,8 +24,8 @@
 		  <div class="row" th:each="sol : ${ listeS }" th:with="idS=${sol.id}">
 		  	<div class="col" th:text="${ idS }"></div>
 
-		    <div class="col" th:text="${ sol.nomS }"></div>
-		    <div class="col" th:text="${ sol.prenomS }"></div>
+		    <div class="col" th:text="${ sol.nom }"></div>
+		    <div class="col" th:text="${ sol.prenom }"></div>
 		    <div class="col" th:text="${ sol.dateNaissance }"></div>
 		    <div class="col" th:text="${ sol.nationalite }"></div>
 		    <div class="col">
