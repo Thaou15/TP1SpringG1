@@ -23,17 +23,12 @@ import com.inti.repository.IChefORepository;
 public class MainController {
 	
 	@Autowired
-
 	ISolisteRepository isr;
-	
-	@GetMapping("formSoliste")
-	public String formSoliste()
-	{
-		return "formSoliste";
-	}
-
+	@Autowired
 	IChefORepository icr;
+
 	
+    
 	@GetMapping("ajoutChefO")
 	public String ajoutChefOrchestre()
 	{
@@ -55,6 +50,7 @@ public class MainController {
 	   
 		return"listeChefO";
 	}
+	
 	
 	@GetMapping("getChefO")
 	public String getChefO(@RequestParam("numChef") int numChef, Model m)
@@ -91,7 +87,12 @@ public class MainController {
 		return "redirect:/listeChefO";
 	}
 	
-
+	
+	@GetMapping("formSoliste")
+	public String formSoliste()
+	{
+		return "formSoliste";
+	}
 
 	@PostMapping("saveSoliste")
 	public String saveSoliste(@ModelAttribute("soliste") Soliste S)
