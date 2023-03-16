@@ -1,52 +1,43 @@
 package com.inti.model;
 
-import java.util.List; 
+import java.time.LocalDate;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-
-import jakarta.persistence.OneToMany;
-
 import jakarta.persistence.ManyToOne;
-
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+;
 
 @Entity
 @Table
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class Oeuvre {
-	
+@Data @NoArgsConstructor
+public class Concert {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String nom;
-	private int duree;
+	private LocalDate date;
+	
+	@OneToMany(mappedBy = "concert")
+	List<Oeuvre> listOeuvres;
 	
 	@ManyToOne
-	@JoinColumn(name="idChefO")
-	private ChefO chefo;
+	@JoinColumn(name = "idlieu")
+	private Lieu lieu;
 
-
-	@ManyToOne
-	@JoinColumn(name = "idconcert")
-	private Concert concert;
-
-	public Oeuvre(String nom, int duree) {
+	public Concert(String nom, LocalDate date) {
 		super();
 		this.nom = nom;
-		this.duree = duree;
+		this.date = date;
 	}
-
-	@OneToMany(mappedBy = "oeuvre" ,targetEntity = Soliste.class)
-    private List<Soliste> listeSoliste;
-
+	
 	
 }
