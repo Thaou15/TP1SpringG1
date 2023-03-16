@@ -25,9 +25,9 @@ public class Soliste {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column(name="nom")
-	private String nomS;
+	private String nom;
 	@Column(name="prenom")
-	private String prenomS;
+	private String prenom;
 	@Column(name="dateNaissance")
 	private LocalDate dateNaissance;
 	@Column(name="nationalite")
@@ -37,10 +37,10 @@ public class Soliste {
     @JoinColumn(name="idO")
     private Oeuvre oeuvre;
 
-	public Soliste(String nomS, String prenomS, LocalDate dateNaissance, String nationalite) {
+	public Soliste(String nom, String prenom, LocalDate dateNaissance, String nationalite) {
 		super();
-		this.nomS = nomS;
-		this.prenomS = prenomS;
+		this.nom = nom;
+		this.prenom = prenom;
 		this.dateNaissance = dateNaissance;
 		this.nationalite = nationalite;
 	}

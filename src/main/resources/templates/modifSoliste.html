@@ -22,11 +22,11 @@
 	
 		<div class="mb-3">
 			<label for="nom" class="form-label">Nom</label> 
-			<input type="text" name="nomS" class="form-control" id="nomS" th:value="${soliste.nomS}">
+			<input type="text" name="nom" class="form-control" id="nom" th:value="${soliste.nom}">
 		</div>
 		<div class="mb-3">
-			<label for="prenomS" class="form-label">Prenom</label> 
-			<input type="text" name="prenomS" class="form-control" id="prenomS" th:value="${soliste.prenomS}">
+			<label for="prenom" class="form-label">Prenom</label> 
+			<input type="text" name="prenom" class="form-control" id="prenom" th:value="${soliste.prenom}">
 		</div>
 		<div class="mb-3">
 			<label for="dateNaissance" class="form-label">Date de naissance</label> 
@@ -34,7 +34,7 @@
 		</div>
 		<div class="mb-3">
 			<label for="nationalite" class="form-label">Nationalité</label> 
-			<input type="text" name="nationalite" class="form-control" id="nationalite" th:value="${vsoliste.nationalite}">
+			<input type="text" name="nationalite" class="form-control" id="nationalite" th:value="${soliste.nationalite}">
 		</div>
 		
 		<button type="submit" class="btn btn-outline-success btn-sm">Valider</button>
