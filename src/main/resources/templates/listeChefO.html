@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Liste des Chef d'orchestre</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+	crossorigin="anonymous"></script>
+</head>
+<body>
+<h1>La liste des chefs d'orchestre</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th scope="col">Numéro</th>
+				<th scope="col">Nom</th>
+				<th scope="col">Prénom</th>
+				<th scope="col">Date de naissance</th>
+				<th scope="col">Nationalité</th>
+				<th scope="col">Action</th>
+			</tr>
+		</thead>
+		<tbody>
+
+			<tr th:each="chef : ${ listeChef }" th:with="numC=${chef.numChef}">
+				<th scope="row" th:text="'Numero :' + ${ numC } "></th>
+				<td th:text="'Nom :' + ${ chef.nomChef } "></td>
+				<td th:text="'Prénom :' + ${ chef.prenomChef } "></td>
+				<td th:text="'Date de naissance :' + ${ chef.dateNaissanceChef } "></td>
+				<td th:text="'Nationalité :' + ${ chef.nationalite } "></td>
+				<td>
+					<a th:href="'delete/' + ${numC} "><button type="button" class="btn btn-outline-danger">Supprimer</button></a> 						
+					<a th:href="'update/' + ${numC} "><button type="button" class="btn btn-info">Modifier</button></a>
+			  </td>
+			</tr>
+
+
+		</tbody>
+
+	</table>
+</body>
+</html>
