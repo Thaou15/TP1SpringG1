@@ -13,11 +13,15 @@ import com.inti.model.ChefO;
 
 import com.inti.repository.IChefORepository;
 
+import lombok.extern.log4j.Log4j2;
+
 @Controller
 public class MainController {
 	
 	@Autowired
 	IChefORepository icr;
+	
+	
 	
 	@GetMapping("ajoutChefO")
 	public String ajoutChefOrchestre()
