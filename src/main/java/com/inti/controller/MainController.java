@@ -51,9 +51,11 @@ public class MainController {
 	}
 
 	@PostMapping("createOeuvre")
-	public String createOeuvre(@ModelAttribute("oeuvre") Oeuvre o, @RequestParam("idConcert") int idC) {
+	public String createOeuvre(@ModelAttribute("oeuvre") Oeuvre o, @RequestParam("idConcert") int idC, @RequestParam("idChef") int numChef) {
 		Concert c = iconr.findById(idC).get();
+		ChefO co = icr.findById(numChef).get();
 		o.setConcert(c);
+		o.setChefo(co);
 //		List<Oeuvre> listOeuvre = c.getListOeuvres();
 //		listOeuvre.add(o);
 //		c.setListOeuvres(listOeuvre);
